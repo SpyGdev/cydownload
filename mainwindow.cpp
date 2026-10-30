@@ -5,12 +5,18 @@
 #include "helpers.h"
 #include "logger.h"
 #include "repodialog.h"
+#include "theme.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    ui->chk_dark_mode->blockSignals(true);
+    ui->chk_dark_mode->setChecked(Theme::isDark());
+    ui->chk_dark_mode->blockSignals(false);
+    updateDeleteButtonStyle();
 
     //initialize the logger
     Logger::initialize(ui->txt_log);
@@ -357,6 +363,28 @@ void MainWindow::on_cmb_repo_urls_currentIndexChanged(int index)
 
     ui->btn_open_repo->setEnabled(true);
     ui->btn_del_repo->setEnabled(true);
+}
+
+void MainWindow::on_chk_dark_mode_toggled(bool checked)
+{
+    Theme::apply(checked);
+    updateDeleteButtonStyle();
+}
+
+void MainWindow::updateDeleteButtonStyle()
+{
+    // The delete button keeps its red border. A widget stylesheet does not
+    // follow the application palette, so dark mode needs explicit colors.
+    if (Theme::isDark())
+    {
+        ui->btn_del_repo->setStyleSheet(
+            "QPushButton { border: 2px solid #e50000; background-color: #353535; color: #ffffff; }"
+            "QPushButton:disabled { color: #808080; background-color: #2b2b2b; border: 2px solid #7a3030; }");
+    }
+    else
+    {
+        ui->btn_del_repo->setStyleSheet("border: 2px solid #e50000;");
+    }
 }
 
 void MainWindow::on_btn_del_repo_clicked()

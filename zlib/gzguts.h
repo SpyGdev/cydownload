@@ -31,6 +31,10 @@
 #endif
 #include <fcntl.h>
 
+#if !defined(_WIN32) && !defined(__TURBOC__) && !defined(_MSC_VER)
+#  include <unistd.h>
+#endif
+
 #ifdef _WIN32
 #  include <stddef.h>
 #endif

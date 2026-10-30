@@ -48,11 +48,31 @@
         <property name="autoFillBackground">
          <bool>false</bool>
         </property>
-        <property name="styleSheet">
-         <string notr="true">border: 2px solid #e50000;</string>
-        </property>
         <property name="text">
          <string>Delete Repo</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="chk_dark_mode">
+        <property name="toolTip">
+         <string>Switch between light and dark appearance</string>
+        </property>
+        <property name="text">
+         <string>Dark Mode</string>
         </property>
        </widget>
       </item>

@@ -34,8 +34,11 @@ private slots:
 
     void on_btn_del_repo_clicked();
 
+    void on_chk_dark_mode_toggled(bool checked);
+
 private:
     void repoInfoDownloaded();
+    void updateDeleteButtonStyle();
     Ui::MainWindow *ui;
     dialogrepo *m_dr;
     QTemporaryDir m_tmpDir;

@@ -1,1 +1,17 @@
 cydownload.pro.user
+
+# Xcode
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+
+# Qt build artifacts
+*.o
+moc_*.cpp
+moc_*.h
+moc_predefs.h
+ui_*.h
+Makefile
+cydownload.app/
+.qmake.stash

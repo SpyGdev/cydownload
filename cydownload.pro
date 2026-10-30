@@ -30,6 +30,7 @@ SOURCES += \
     helpers.cpp \
     downloader.cpp \
     logger.cpp \
+    theme.cpp \
     repodialog.cpp \
     zlib/adler32.c \
     zlib/compress.c \
@@ -60,6 +61,7 @@ HEADERS += \
     helpers.h \
     downloader.h \
     logger.h \
+    theme.h \
     types.h \
     repodialog.h \
     zlib/crc32.h \
